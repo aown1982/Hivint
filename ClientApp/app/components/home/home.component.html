@@ -1,0 +1,43 @@
+<div [@flyInOut]="'in'">
+
+    <h1>Hivint Coding Test</h1>
+
+    <p>This component demonstrates fetching data from the server.</p>
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="domain e.g. yahoo.com" #search />
+        </div>
+        <div class="col-md-4">
+            <button type="button" class="btn btn-primary" (click)="getSubdomains(search.value)"> List Subdomains</button>
+        </div>
+        <div class="col-md-4">
+            <button type="button" class="btn btn-primary" (click)="getIpAddresses()"> Find IP Addresses</button>
+        </div>
+    </div>
+
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Subdomain</th>
+                <th>IP Addresses</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let subdomain of subdomains">
+                <td>{{ subdomain.id }}</td>
+                <td>{{ subdomain.subdomainName }}</td>
+                <td>{{ subdomain.ipAddresses }}</td>
+
+            </tr>
+        </tbody>
+    </table>
+           
+    <pagination [boundaryLinks]="true" [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" [(ngModel)]="currentPage" class="pagination-sm"
+                previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;" (pageChanged)="pageChanged($event)"></pagination>
+
+
+</div>
+
