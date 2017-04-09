@@ -1,4 +1,4 @@
-"# Hivint" 
+# Hivint 
 
 The Hivint Coding Test
 
